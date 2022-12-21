@@ -1,0 +1,54 @@
+@import url( '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,800italic,300,400,600,800');
+@import url( '//fonts.googleapis.com/css?family=Trirong:300italic,400italic,600italic,800italic,300,400,600,800');
+@import url( '//fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url( '//fonts.googleapis.com/css?family=Lato:300,400');
+@import '~aurelia-ui-framework/sass/variables';
+@import '~aurelia-ui-framework/sass/hljs';
+
+$menu-link-active-bg: $secondary;
+$menu-link-active-hilight: $primary;
+@import '~aurelia-ui-framework/sass/framework';
+
+.indicator {
+  display      : inline-block;
+  width        : 1em;
+  height       : 1em;
+  border-radius: 1em;
+}
+
+.section-title {
+  padding   : 0.1em 0.5em !important;
+  margin    : 1em -.25em 0.5em !important;
+  background: $light;
+  color     : $primary;
+}
+
+.button-bar {
+  padding   : 2em 0;
+  text-align: center;
+
+  .ui-divider {
+    display: block;
+    margin : 0 0.2rem;
+    border : {
+      left : 1px solid $dark;
+      right: 1px solid $light;
+    }
+    @include transform(scaleX(.5));
+    @include align-self(stretch);
+  }
+
+  .big-button {
+    border       : 1px solid rgba(#f0f0f0, .3);
+    border-radius: 5px;
+    padding      : 1em 2em;
+    margin       : 0 0.5em;
+    color        : white;
+    display      : inline-block;
+
+    &:hover {
+      text      : white;
+      background: $primary;
+    }
+  }
+}

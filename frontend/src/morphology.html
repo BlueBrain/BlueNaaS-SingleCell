@@ -1,0 +1,11 @@
+<template>
+    <ui-tree
+        searchable
+        ref='treeRef'
+        view-model.ref='tree'
+        options.bind='treeOpts'
+        model.bind='treeModel'
+        value.bind='treeSelected'
+        hover.bind='treeHovered'
+        style='overflow-y:auto'></ui-tree>
+</template>

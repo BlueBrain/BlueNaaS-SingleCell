@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+}
+
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+}
+
+.splash .message {
+  font-size: 72px;
+  line-height: 72px;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.splash .fa-spinner {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
+  margin-top: 50px;
+}
+
+section {
+  margin: 0 20px;
+}
+
+.ui-section .ui-sidebar {
+    max-width: 620px;
+    width: 620px;
+    flex: 0 0 620px;
+}
+
+.ui-overlay-container {
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+}
+
+.ui-tree-level {
+    -moz-padding-start: .5em;
+}
+
+.ui-tree-level .ui-tree-level {
+    -moz-padding-start: .9em;
+}
+
+.ui-toast {
+    max-width : 50rem !important;
+}
+
+.ui-toast.open {
+    max-height : 10rem !important;
+}
+
+.dygraph-legend > span.highlight {
+    font-weight: bold;
+}
+
+ui-page > div.ui-page-title {
+    background: #607d8b !important;
+}
+
+.soma {
+    fill: rgb(100,100,100);
+}
+
+.axon {
+    fill: rgb(65,105,225);
+}
+
+.dend {
+    fill: rgb(220,20,60);
+}
+
+.apic {
+    fill: rgb(150,0,150);
+}

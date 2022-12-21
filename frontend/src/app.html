@@ -1,0 +1,75 @@
+<template>
+    <require from='aurelia-ui-framework/css/app.css'></require>
+    <compose view='./glyphs.html'></compose>
+
+    <ui-viewport>
+        <ui-app-header>
+            <ui-drawer-toggle drawer.bind='menuDrawer'></ui-drawer-toggle>
+            <ui-app-title>
+                <h6>Neuron as a Service</h6>
+                    <!-- <span t='common:title'></span> -->
+                    <!-- <small t='subtitle'></small> -->
+            </ui-app-title>
+            <span innerhtml.bind='modelId' style='padding-right:10px;'></span>
+            <span style='padding-right:10px;'></span>
+            <i class='fa ${isConnected ? "fa-link" : "fa-chain-broken"} ${isConnecting ? "fa-spin" : ""}'></i>
+        </ui-app-header>
+
+        <ui-drawer ref='menuDrawer' scroll close-on-click>
+            <a href='#/' class='ui-block'>
+                <fieldset class='menu-banner'>
+                    <ui-row middle>
+                        <ui-column fill class='ui-font-big'>
+                        </ui-column>
+                    </ui-row>
+                </fieldset>
+            </a>
+            <ui-menu>
+                  <ui-menu-item href='https://lbologna.github.io/hbp-sp6-guidebook/online_usecases/single_cell_in_silico/single_cell_clamp/single_cell_clamp.html'>Help</ui-menu-item>
+                  <ui-menu-item click.trigger='showAbout()'>About</ui-menu-item>
+            </ui-menu>
+        </ui-drawer>
+
+        <ui-section row-layout>
+            <ui-sidebar label='sidebar' collapsed='true' scroll mini-display small>
+                <ui-menu>
+                    <ui-menu-item view-model.ref='toggle3dCtrl' disabled='true'
+                        class='fa fa-lg ${is3d ? "fa-toggle-on" : "fa-toggle-off"}'
+                        click.trigger='is3d = !is3d'></ui-menu-item>
+                </ui-menu>
+            </ui-sidebar>
+
+            <ui-sidebar label='Neuron' flex collapsible padded position='end' collapsed.bind='isNeuronCollapsed'>
+                <ui-tab-panel active-tab.bind='tabActive' view-model.ref='tabPanel' style='height:100%;'>
+                    <ui-tab id='morphology' label='Morphology' flex>
+                        <ui-row-column start style='border-bottom:1px solid #BDC2C8'>
+                            <ui-row class='ui-pad-all'>
+                                <ui-switch view-model.ref='toggle3dSwitch'
+                                    theme='primary'
+                                    on-label='3d'
+                                    off-label='dendrogram'
+                                    size='10em'
+                                    checked.bind='is3d'
+                                    disabled='true'></ui-switch>
+                            </ui-row>
+                            <ui-row class='ui-pad-all' style='align-items:center;margin-bottom:0.5em;flex-wrap:nowrap'>
+                                <span click.delegate='placeCurrentInjection()' style='display:flex'>
+                                    <ui-button glyph='glyph-iclamp' small primary disabled.bind='currentPlaceDisabled' style='width:20em;max-width:20em;'>Place current injection</ui-button>
+                                </span>
+                                <span if.bind='iclampSection' class='ui-font-small' style='padding-left:10px;padding-right:5px'>Current placement:</span>
+                                <ui-button click.delegate='locateIClamp()' small if.bind='iclampSection' textcontent.bind='iclampSection'></span>
+                            </ui-row>
+                        </ui-row-column>
+                        <compose view-model='morphology' style='overflow:hidden'></compose>
+                        <compose view-model='section-info' class='ui-thin ui-font-small ui-border' style='flex:0 0 11em;overflow:auto;border-top:1px solid #BDC2C8'></compose>
+                    </ui-tab>
+                    <ui-tab id='simulation' label='Simulation' flex>
+                        <compose view-model='params'></compose>
+                    </ui-tab>
+                </ui-tab-panel>
+            </ui-sidebar>
+
+            <ui-router-view></ui-router-view>
+        </ui-section>
+    </ui-viewport>
+</template>

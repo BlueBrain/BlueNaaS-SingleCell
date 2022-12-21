@@ -1,0 +1,8 @@
+[pydocstyle]
+# ignore the following
+#   - D102: Missing docstring in public method
+#   - D107: Missing docstring in __init__
+#   - D300: Use """triple double quotes""" (found '''-quotes)
+#   - D301: Use r""" if any backslashes in a docstring
+#   - D413: no blank line afer last section
+add-ignore = D102,D107,D300,D301,D413
