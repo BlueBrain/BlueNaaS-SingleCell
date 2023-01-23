@@ -20,6 +20,9 @@ make run_dev_frontend &
 make run_dev_backend &
 ```
 
+## Citation
+When you use the BlueNaaS-SingleCell software, we ask you to cite the following (TBD).
+
 ## Funding & Acknowledgment
 
 The development of this software was supported by funding to the Blue Brain Project,
