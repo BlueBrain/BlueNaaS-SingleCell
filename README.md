@@ -13,6 +13,9 @@ You can use the application on the EBRAINS platform at https://ebrains-cls-inter
 
 <img src="images/output.png" width="800"/>
 
+## Documentation
+The user documentation for the service can be found [here](https://ebrains-cls-interactive.github.io/docs/online_usecases/single_cell_in_silico/single_cell_clamp/single_cell_clamp.html).
+
 ## Build frontend/backend dev images
 ```bash
 make build
