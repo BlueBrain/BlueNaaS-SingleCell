@@ -4,7 +4,7 @@
 
 Blue-Neuroscience-as-a-Service-SingleCell is an open source web application.
 It enables users to quickly visualize single cell model morphologies in 3D
-or as a dendrogram. Using simple Web user interface, single cell simulations
+or as a dendrogram. Using a simple web user interface, single cell simulations
 can be easily configured and launched, producing voltage traces from selected
 compartments.
 
