@@ -37,4 +37,4 @@ a research center of the École polytechnique fédérale de Lausanne (EPFL),
 from the Swiss government's ETH Board of the Swiss Federal Institutes of Technology
 and from the Human Brain Project's Specific Grant Agreement 3.
 
-Copyright (c) 2022 Blue Brain Project/EPFL
+Copyright (c) 2022-2023 Blue Brain Project/EPFL
