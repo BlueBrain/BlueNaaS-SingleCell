@@ -28,8 +28,8 @@ make run_dev_backend &
 ```
 
 ## Citation
-When you use the BlueNaaS-SingleCell software, we ask you to cite the following (TBD).
-
+When you use the BlueNaaS-SingleCell software, we ask you to cite the following:
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.7784792.svg)](https://doi.org/10.5281/zenodo.7784792)
 ## Funding & Acknowledgment
 
 The development of this software was supported by funding to the Blue Brain Project,
