@@ -1,0 +1,16 @@
+name: Publish frontend/backend images to Ebrains Docker Registry
+on:
+  [workflow_dispatch]
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: log in
+        run: |
+          docker login ${{secrets.EBRAINS_REGISTRY_SERVER}} -u ${{ secrets.DOCKER_REGISTRY_USER }} -p ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+      - name: build and publish frontend and backend
+        run: |
+          make build
+          make publish
+          
