@@ -11,6 +11,5 @@ jobs:
           docker login ${{secrets.EBRAINS_REGISTRY_SERVER}} -u ${{ secrets.DOCKER_REGISTRY_USER }} -p ${{secrets.DOCKER_REGISTRY_PASSWORD}}
       - name: build and publish frontend and backend
         run: |
-          make build
           make publish
           
