@@ -102,7 +102,7 @@ def is_python_model(model_path):
 
 def compile_mechanisms(model_path, no_throw=False):
     '''Compile model mechanisms.'''
-    mech_path = model_path / 'mechanisms'
+    mech_path = Path(model_path) / 'mechanisms'
     if not mech_path.is_dir():
         if not no_throw:
             raise Exception("Folder not found! Expecting 'mechanisms' folder in the model!")
