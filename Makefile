@@ -6,6 +6,7 @@ Makefile usage
     run_dev_backend   Run development instance of the backend.
     run_dev_frontend  Run development instance of the frontend.
     build             Build docker images for backend/frontend.
+    publish           Publish docker images for backend/frontend.
 endef
 export HELPTEXT
 
@@ -21,3 +22,7 @@ run_dev_frontend:
 build:
 	$(MAKE) -C backend docker_build
 	$(MAKE) -C frontend docker_build
+
+publish:
+	$(MAKE) -C backend publish_ebrains
+	$(MAKE) -C frontend publish_ebrains

@@ -4,6 +4,8 @@ VERSION?=$(shell cat ../VERSION)
 export VERSION
 NEURON_VERSION?=$(shell cat ../NEURON_VERSION)
 IMAGE_NAME?=blue-naas-svc
+TAG?=ebrains2-dev
+REGISTRY?=docker-registry.ebrains.eu/bsp-epfl
 
 define HELPTEXT
 Makefile usage
@@ -35,9 +37,7 @@ sort_imports: | venv
 	@venv/bin/isort --line-width 100 blue_naas
 
 docker_build:
-	docker build -t $(IMAGE_NAME):dev \
-		--build-arg http_proxy=http://bbpproxy.epfl.ch:80/ \
-		--build-arg https_proxy=http://bbpproxy.epfl.ch:80/ \
+	docker build -t $(IMAGE_NAME):$(TAG) \
 		--build-arg VERSION=$(VERSION) \
 		--build-arg NEURON_VERSION=$(NEURON_VERSION) \
 		.
@@ -45,8 +45,12 @@ docker_build:
 run_dev: docker_build
 	docker run --rm -it \
 		-e DEBUG=True \
-		-e ALLOWED_ORIGIN=http://$$(dnsdomainname -A|xargs):8080 \
+		-e ALLOWED_ORIGIN=http://localhost:8080 \
 		-v $$(pwd)/blue_naas:/usr/local/lib/python3.12/site-packages/blue_naas \
 		-v $$(pwd)/models:/opt/blue-naas/models \
 		-p 8000:8000 \
-		$(IMAGE_NAME):dev
+		$(IMAGE_NAME):$(TAG)
+
+publish_ebrains: docker_build
+	docker tag $(IMAGE_NAME):$(TAG) $(REGISTRY)/$(IMAGE_NAME):$(TAG)
+	docker push $(REGISTRY)/$(IMAGE_NAME):$(TAG)
