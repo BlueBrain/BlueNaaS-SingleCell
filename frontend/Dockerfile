@@ -1,4 +1,4 @@
-FROM node:17-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY . .
 ARG WS_URL
@@ -6,7 +6,7 @@ ARG VERSION
 ARG NEURON_VERSION
 RUN npm install && npm run build
 
-FROM alpine:3.17
+FROM alpine:3.20
 
 RUN apk add --no-cache nginx bash bash-completion vim
 
