@@ -1,10 +1,10 @@
-FROM python:3.9-slim AS builder
+FROM python:3.12-slim AS builder
 WORKDIR /app
 ARG VERSION
 COPY . .
 RUN python setup.py sdist
 
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
