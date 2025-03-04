@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from random import choice
 from string import ascii_uppercase
-from urllib.parse import urlunsplit
+from urllib.parse import urlunsplit, urlparse
 from zipfile import ZipFile
 
 import requests
@@ -26,11 +26,14 @@ CELL = None
 
 def _load_from_url(url):
     try:
-        zip_url = urlunsplit(('https',
-                              'object.cscs.ch',
-                              'v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/' + url,
-                              None,
-                              None))
+        if urlparse(url).scheme:
+            zip_url = url
+        else:
+            zip_url = urlunsplit(('https',
+                                  'object.cscs.ch',
+                                  'v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/' + url,
+                                  None,
+                                  None))
         L.debug('downloading emodel from url: %s', zip_url)
         response = requests.get(zip_url, stream=True, timeout=10)
         try:
